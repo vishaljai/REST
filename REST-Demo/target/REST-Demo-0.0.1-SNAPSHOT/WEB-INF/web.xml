@@ -5,24 +5,27 @@
    http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
    id="WebApp_ID" version="3.0">
    <display-name>REST_Demo</display-name>
+   <context-param>
+		<param-name>resteasy.resources</param-name>
+		<param-value>rest.kn</param-value>
+	</context-param>
    <servlet>
-  <servlet-name>Jersey REST Service</servlet-name>
-<servlet-class>
-  com.sun.jersey.spi.container.servlet.ServletContainer
-</servlet-class>
-
-<init-param>
+	<servlet-name>jersey-serlvet</servlet-name>
+	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+	<init-param>
+		<param-name>com.sun.jersey.config.property.packages</param-name>
+		<param-value>com.mkyong.rest</param-value>
+	</init-param>
+	<init-param>
 		<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
 		<param-value>true</param-value>
 	</init-param>
-  <init-param>
-    <param-name>com.sun.jersey.config.property.packages</param-name>
-    <param-value>rest.kn</param-value>
-  </init-param>
-  <load-on-startup>1</load-on-startup>
-</servlet>
-<servlet-mapping>
-  <servlet-name>Jersey REST Service</servlet-name>
-  <url-pattern>/rest/*</url-pattern>
-</servlet-mapping>
+	<load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+	<servlet-name>jersey-serlvet</servlet-name>
+	<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
